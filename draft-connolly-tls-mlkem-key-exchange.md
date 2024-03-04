@@ -21,7 +21,7 @@ venue:
   type: "Working Group"
   mail: "tls@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/tls/"
-  github: "dconnolly/draft-tls-mlkem-key-agreement"
+  github: "dconnolly/draft-connolly-tls-mlkem-key-agreement"
 
 author:
  -
