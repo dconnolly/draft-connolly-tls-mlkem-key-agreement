@@ -3,7 +3,7 @@ title: "ML-KEM Post-Quantum Key Agreement for TLS 1.3"
 abbrev: connolly-tls-mlkem-key-agreement
 category: info
 
-docname: draft-connolly-tls-mlkem-key-agreement-latest
+docname: draft-connolly-tls-mlkem-key-exchange-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
