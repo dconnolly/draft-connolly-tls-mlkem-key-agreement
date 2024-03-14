@@ -70,11 +70,11 @@ This memo defines ML-KEM-768 and ML-KEM-1024 as a standalone
 
 ## Motivation
 
-FIPS 203 standard (ML-KEM) is a new FIPS / CNSA 2.0 standard for
-post-quantum key agreement via lattice-based key establishment mechanism
-(KEM). Having a fully post-quantum (not hybrid) FIPS-compliant key
-agreement option for TLS 1.3 is necessary for eventual movement beyond
-hybrids and for users that need to be fully post-quantum sooner than later.
+FIPS 203 standard (ML-KEM) is a new FIPS standard for post-quantum
+key agreement via lattice-based key establishment mechanism
+(KEM). Having a fully post-quantum (not hybrid) key agreement
+option for TLS 1.3 is necessary for migrating beyond hybrids and
+for users that need to be fully post-quantum.
 
 # Conventions and Definitions
 
@@ -107,8 +107,8 @@ ML-KEM-768 and ML-KEM-1024 conform to this API:
 
 # Construction {#construction}
 
-We align with {{hybrid}} except that instead of joining ECDH options
-with a KEM, we just have the KEM as a `NamedGroup`.
+We define the KEMs as `NamedGroup`s and sent in the `supported_groups`
+extension.
 
 ## Negotiation {#negotiation}
 
