@@ -280,9 +280,8 @@ computational binding properties for KEMs were formalized in {{CDM23}}.
 
 # IANA Considerations
 
-This document requests/registers two new entries to the TLS Named Group
-(or Supported Group) registry, according to the procedures in {{Section
-6 of tlsiana}}.
+This document requests/registers two new entries to the TLS Supported
+Groups registry, according to the procedures in {{Section 6 of tlsiana}}.
 
  Value:
  : 0x0768 (please)
