@@ -3,8 +3,8 @@
 This is the working area for the individual Internet-Draft, "ML-KEM Post-Quantum Key Agreement for TLS 1.3".
 
 * [Editor's Copy](https://dconnolly.github.io/draft-connolly-tls-mlkem-key-agreement/#go.draft-connolly-tls-mlkem-key-exchange.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-connolly-tls-mlkem-key-exchange)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-connolly-tls-mlkem-key-exchange)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-connolly-tls-mlkem-key-agreement)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-connolly-tls-mlkem-key-agreement)
 * [Compare Editor's Copy to Individual Draft](https://dconnolly.github.io/draft-connolly-tls-mlkem-key-agreement/#go.draft-connolly-tls-mlkem-key-exchange.diff)
 
 
