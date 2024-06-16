@@ -1,0 +1,168 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-06-16T00:04:25.973159+00:00",
+  "repo": "dconnolly/draft-connolly-tls-mlkem-key-agreement",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOLZWQXM6CQAK7",
+      "title": "if Decaps fails, return a `decrypt_error`?",
+      "url": "https://github.com/dconnolly/draft-connolly-tls-mlkem-key-agreement/issues/1",
+      "state": "CLOSED",
+      "author": "dconnolly",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "We should align -hybrid-design to do the same",
+      "createdAt": "2024-03-14T02:03:55Z",
+      "updatedAt": "2024-03-20T00:07:36Z",
+      "closedAt": "2024-03-20T00:07:36Z",
+      "comments": [
+        {
+          "author": "dconnolly",
+          "authorAssociation": "OWNER",
+          "body": "Would we even be able to detect this with reasonable probability? Seems like no",
+          "createdAt": "2024-03-14T20:00:53Z",
+          "updatedAt": "2024-03-14T20:00:53Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "OWNER",
+          "body": "> There was a push to change the parsing logic for ML-KEM public keys to never fail, by silently reducing, without changing the hash of the public key. I am not sure if NIST ended up adopting that change for their final standard (I hope they did, I think it's the best way to handle this problem), which would mean that any appropriately sized binary string is a valid ML-KEM public key. For ciphertexts, this property is already the case, due to the compression that is applied in ML-KEM. If NIST incorporated this change, there would be no way for the ML-KEM based key agreement to fail explicitly, any failure would result in an implicit rejection.\n> In the end, this seems to be the same as with elliptic curves as is as well, point-not-on-curve checks can result in an explicit rejection of a keyshare (for the curves where it can occur), and manipulation of the keyshare (by an attacker or some accidental bit flip that somehow was not caught) would result in an implicit rejection here as well, with server and client computing a different shared secret. The only new possible error path I see is due to random decryption failure of a KEM, but given the cryptographically low chance, I'm not certain if this failure needs special handling in any case, and shouldn't be treated the same as a corrupted key share. After all, they are so unlikely that \"cosmic rays flipped all the right bits for QUIC error correction to not notice\" is far more likely to result in a decryption error, so treating it the same as a decryption failure due to a corrupted ciphertext seems fine to me.\n\nhttps://mailarchive.ietf.org/arch/msg/tls/eYUG4DDkfoaGeMAkZHVGGeqcVq0/",
+          "createdAt": "2024-03-14T20:03:04Z",
+          "updatedAt": "2024-03-14T20:03:04Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "OWNER",
+          "body": "Decided with no",
+          "createdAt": "2024-03-20T00:07:36Z",
+          "updatedAt": "2024-03-20T00:07:36Z"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOLZWQXM6CQAk5",
+      "title": "Define 'commits', or just define and use 'bind', and stick with one",
+      "url": "https://github.com/dconnolly/draft-connolly-tls-mlkem-key-agreement/issues/2",
+      "state": "OPEN",
+      "author": "dconnolly",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-03-14T02:05:55Z",
+      "updatedAt": "2024-03-14T02:05:55Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOLZWQXM6C5_St",
+      "title": "Refer to TLS Supported Groups",
+      "url": "https://github.com/dconnolly/draft-connolly-tls-mlkem-key-agreement/issues/3",
+      "state": "CLOSED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Registry is called \"TLS Supported Groups\":\r\nhttps://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-8",
+      "createdAt": "2024-03-19T23:33:53Z",
+      "updatedAt": "2024-03-20T00:07:20Z",
+      "closedAt": "2024-03-20T00:07:20Z",
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 4,
+      "id": "PR_kwDOLZWQXM5qKTln",
+      "title": "Reg Name Fix",
+      "url": "https://github.com/dconnolly/draft-connolly-tls-mlkem-key-agreement/pull/4",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Being a registry nerd. Closes #3.",
+      "createdAt": "2024-03-20T00:01:59Z",
+      "updatedAt": "2024-03-20T00:07:20Z",
+      "baseRepository": "dconnolly/draft-connolly-tls-mlkem-key-agreement",
+      "baseRefName": "main",
+      "baseRefOid": "8a0fc11959aebfe83fb7a61b6e4ed1ce4686caa7",
+      "headRepository": "seanturner/draft-connolly-tls-mlkem-key-agreement",
+      "headRefName": "patch-1",
+      "headRefOid": "f6b9c9de98f0868bc81a9c594f0f5fd87e230e03",
+      "closedAt": "2024-03-20T00:07:19Z",
+      "mergedAt": "2024-03-20T00:07:19Z",
+      "mergedBy": "dconnolly",
+      "mergeCommit": {
+        "oid": "9a5970c1d0561d416b4f48eb421f64fb737fe358"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLZWQXM50FsVK",
+          "commit": {
+            "abbreviatedOid": "f6b9c9d"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-03-20T00:07:10Z",
+          "updatedAt": "2024-03-20T00:07:10Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
