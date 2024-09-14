@@ -60,8 +60,8 @@ informative:
 
 --- abstract
 
-This memo defines ML-KEM-768 and ML-KEM-1024 as a standalone
-`NamedGroup` for use in TLS 1.3 to achieve post-quantum key agreement.
+This memo defines the use of Key Encapsulation Mechanisms (KEMs) as `NamedGroup`s for use in TLS 1.3
+key establishment.
 
 --- middle
 
@@ -69,11 +69,11 @@ This memo defines ML-KEM-768 and ML-KEM-1024 as a standalone
 
 ## Motivation
 
-FIPS 203 standard (ML-KEM) is a new FIPS standard for post-quantum
-key agreement via lattice-based key establishment mechanism
-(KEM). Having a fully post-quantum (not hybrid) key agreement
-option for TLS 1.3 is necessary for migrating beyond hybrids and
-for users that need to be fully post-quantum.
+New standards for key agreement via key establishment mechanisms (KEMs)
+are being introduced, especially around post-quantum security
+properties. Having a key establishment option for TLS 1.3 based on KEMs
+alone is necessary for eventual movement beyond hybrids and for users
+that need to be fully post-quantum sooner than later.
 
 # Conventions and Definitions
 
@@ -94,16 +94,6 @@ This document models key agreement as key encapsulation mechanisms
   input a secret decapsulation key `sk` and ciphertext `ct` and outputs
   a shared secret `shared_secret`.
 
-ML-KEM-768 and ML-KEM-1024 conform to this API:
-
-- ML-KEM-768 has encapsulation keys of size 1184 bytes, decapsulation
-  keys of 2400 bytes, ciphertext size of 1088 bytes, and shared secrets
-  of size 32 bytes
-
-- ML-KEM-1024 has encapsulation keys of size 1568 bytes, decapsulation
-  keys of 3168 bytes, ciphertext size of 1568 bytes, and shared secrets
-  of size 32 bytes
-
 # Construction {#construction}
 
 We define the KEMs as `NamedGroup`s and sent in the `supported_groups`
@@ -111,18 +101,19 @@ extension.
 
 ## Negotiation {#negotiation}
 
-Each method is its own solely post-quantum key agreement method, which
-are assigned their own identifiers, registered by IANA in the TLS
-Supported Groups registry:
+Each method is its own KEM method, which are assigned their own
+identifiers, registered by IANA in the TLS Supported Groups registry; an
+example of the `NamedGroup` instances of a `MyKEM` primitive with at
+least two parameter sets:
 
 ~~~
     enum {
 
          ...,
 
-          /* ML-KEM Key Agreement Methods */
-          mlkem768(0x0768),
-          mlkem1024(0x1024)
+          /* MyKEM Key Establishment Methods */
+          mykem123(0x0123),
+          mykem789(0x0789)
 
          ...,
 
@@ -162,11 +153,10 @@ The client's shares are listed in descending order of client preference;
 the server selects one algorithm and sends its corresponding share.
 
 For the client's share, the `key_exchange` value contains the `pk`
-output of the corresponding ML-KEM `NamedGroup`'s `KeyGen` algorithm.
+output of the corresponding KEM `NamedGroup`'s `KeyGen` algorithm.
 
 For the server's share, the `key_exchange` value contains the `ct`
-output of the corresponding ML-KEM `NamedGroup`'s `Encaps` algorithm.
-
+output of the corresponding KEM `NamedGroup`'s `Encaps` algorithm.
 
 ## Shared secret calculation {#construction-shared-secret}
 
@@ -226,14 +216,31 @@ if a failure is encountered.
 
 # Security Considerations
 
-**IND-CCA** The main security property for KEMs is indistinguishability under
-adaptive chosen ciphertext attack (IND-CCA2), which means that shared
-secret values should be indistinguishable from random strings even given
-the ability to have other arbitrary ciphertexts decapsulated.  IND-CCA2
-corresponds to security against an active attacker, and the public key /
-secret key pair can be treated as a long-term key or reused.  A common
-design pattern for obtaining security under key reuse is to apply the
-Fujisaki-Okamoto (FO) transform {{FO}} or a variant thereof {{HHK}}.
+**Fixed lengths** For each `NameGroup`, the lengths are fixed (that is,
+constant) for encapsulation keys, the ciphertexts, and the shared
+secrets.
+
+Variable-length secrets are, generally speaking, dangerous.  In
+particular, when using key material of variable length and processing it
+using hash functions, a timing side channel may arise.  In broad terms,
+when the secret is longer, the hash function may need to process more
+blocks internally.  In some unfortunate circumstances, this has led to
+timing attacks, e.g. the Lucky Thirteen {{LUCKY13}} and Raccoon
+{{RACCOON}} attacks.
+
+{{AVIRAM}} identified a risk of using variable-length secrets when the
+hash function used in the key derivation function is no longer
+collision-resistant.
+
+**IND-CCA** The main security property for KEMs is indistinguishability
+under adaptive chosen ciphertext attack (IND-CCA2), which means that
+shared secret values should be indistinguishable from random strings
+even given the ability to have other arbitrary ciphertexts decapsulated.
+IND-CCA2 corresponds to security against an active attacker, and the
+public key / secret key pair can be treated as a long-term key or
+reused.  A common design pattern for obtaining security under key reuse
+is to apply the Fujisaki-Okamoto (FO) transform {{FO}} or a variant
+thereof {{HHK}}.
 
 Key exchange in TLS 1.3 is phrased in terms of Diffie-Hellman key
 exchange in a group.  DH key exchange can be modeled as a KEM, with
@@ -261,64 +268,28 @@ any bounds in the specification of the KEM or subsequent security
 analyses.  Implementations MUST NOT reuse randomness in the generation
 of KEM ciphertexts.
 
-**Binding properties** TLS 1.3's key schedule commits to the the ML-KEM
+**Binding properties** TLS 1.3's key schedule commits to the the KEM
 encapsulation key and the encapsulated shared secret ciphertext as the
 `key_exchange` field as part of the `key_share` extension are populated
 with those values are included as part of the handshake messages,
 providing resilience against re-encapsulation attacks against KEMs used
 for key agreement.
 
-ML-KEM is MAL-BIND-K-PK-secure but only LEAK-BIND-K-CT and
-LEAK-BIND-K,PK-CT-secure, but because of the inclusion of the ML-KEM
-ciphertext in the TLS 1.3 key schedule there is no concern of malicious
-tampering (MAL) adversaries, not just honestly-generated but leaked key
-pairs (LEAK adversaries). The same is true of other KEMs with weaker
-binding properties, even if they were to have more constraints for
-secure use in contexts outside of TLS 1.3 handshake key agreement.These
-computational binding properties for KEMs were formalized in {{CDM23}}.
+Because of the inclusion of the KEM ciphertext in the TLS 1.3 key
+schedule, there is no concern of malicious tampering (MAL) adversaries,
+nor of just honestly-generated but leaked key pairs (LEAK
+adversaries). The same is true of KEMs with weaker binding properties,
+even if they were to have more constraints for secure use in contexts
+outside of TLS 1.3 handshake key agreement.These computational binding
+properties for KEMs were formalized in {{CDM23}}.
+
+[TODO: extrapolate on Kemmy Schmidt implications; in the mlkem document,
+strongly encourage implementers to use the seed variant of FIPS 203 to
+achieve strong binding properties]
 
 # IANA Considerations
 
-This document requests/registers two new entries to the TLS Supported
-Groups registry, according to the procedures in {{Section 6 of tlsiana}}.
-
- Value:
- : 0x0768 (please)
-
- Description:
- : MLKEM768
-
- DTLS-OK:
- : Y
-
- Recommended:
- : N
-
- Reference:
- : This document
-
- Comment:
- : FIPS 203 version of ML-KEM-768
-
-
- Value:
- : 0x1024 (please)
-
- Description:
- : MLKEM1024
-
- DTLS-OK:
- : Y
-
- Recommended:
- : N
-
- Reference:
- : This document
-
- Comment:
- : FIPS 203 version of ML-KEM-1024
-
+None.
 
 --- back
 
