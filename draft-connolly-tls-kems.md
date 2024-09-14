@@ -1,18 +1,17 @@
 ---
-title: "ML-KEM Post-Quantum Key Agreement for TLS 1.3"
-abbrev: connolly-tls-mlkem-key-agreement
+title: "Key Encapsulation Mechanisms for TLS 1.3"
+abbrev: connolly-tls-kems
 category: info
 
-docname: draft-connolly-tls-mlkem-key-agreement-latest
-submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
+docname: draft-connolly-tls-kems-latest
+submissiontype: IETF
 number:
 date:
 consensus: true
 v: 3
 keyword:
- - mlkem
+ - kems
  - tls
- - post-quantum
 
 area: "Security"
 workgroup: "Transport Layer Security"
