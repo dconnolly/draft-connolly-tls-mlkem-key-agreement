@@ -33,6 +33,23 @@ normative:
   FIPS203: DOI.10.6028/NIST.FIPS.203
 
 informative:
+  AVIRAM:
+    target: https://mailarchive.ietf.org/arch/msg/tls/F4SVeL2xbGPaPB2GW_GkBbD_a5M/
+    title: "[TLS] Combining Secrets in Hybrid Key Exchange in TLS 1.3"
+    date: 2021-09-01
+    author:
+      -
+        ins: Nimrod Aviram
+      -
+        ins: Benjamin Dowling
+      -
+        ins: Ilan Komargodski
+      -
+        ins: Kenny Paterson
+      -
+        ins: Eyal Ronen
+      -
+        ins: Eylon Yogev
   CDM23:
     title: "Keeping Up with the KEMs: Stronger Security Notions for KEMs and automated analysis of KEM-based protocols"
     target: https://eprint.iacr.org/2023/1933.pdf
@@ -56,6 +73,31 @@ informative:
   HHK: DOI.10.1007/978-3-319-70500-2_12
   HPKE: RFC9180
   hybrid: I-D.ietf-tls-hybrid-design
+  LUCKY13:
+    target: https://ieeexplore.ieee.org/iel7/6547086/6547088/06547131.pdf
+    title: "Lucky Thirteen: Breaking the TLS and DTLS record protocols"
+    author:
+    -
+      ins: N. J. Al Fardan
+    -
+      ins: K. G. Paterson
+  RACCOON:
+    target: https://raccoon-attack.com/
+    title: "Raccoon Attack: Finding and Exploiting Most-Significant-Bit-Oracles in TLS-DH(E)"
+    author:
+    -
+      ins: R. Merget
+    -
+      ins: M. Brinkmann
+    -
+      ins: N. Aviram
+    -
+      ins: J. Somorovsky
+    -
+      ins: J. Mittmann
+    -
+      ins: J. Schwenk
+    date: 2020-09
   tlsiana: I-D.ietf-tls-rfc8447bis
 
 --- abstract
