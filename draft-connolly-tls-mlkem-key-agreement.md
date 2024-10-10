@@ -1,9 +1,9 @@
 ---
-title: "Key Encapsulation Mechanisms for TLS 1.3"
-abbrev: connolly-tls-kems
+title: "ML-KEM Post-Quantum Key Agreement for TLS 1.3"
+abbrev: connolly-tls-mlkem-key-agreement
 category: info
 
-docname: draft-connolly-tls-kems-latest
+docname: draft-connolly-tls-mlkem-key-agreement-latest
 submissiontype: IETF
 number:
 date:
