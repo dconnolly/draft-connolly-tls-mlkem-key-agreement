@@ -336,16 +336,15 @@ more constraints for secure use in contexts outside of TLS 1.3 handshake key
 agreement.These computational binding properties for KEMs were formalized in
 {{CDM23}}.
 
-[TODO: extrapolate on Kemmy Schmidt implications; in the mlkem document,
-strongly encourage implementers to use the seed variant of FIPS 203 to
-achieve strong binding properties]
+<!-- TODO: extrapolate on Kemmy Schmidt implications; in the mlkem document, -->
+<!-- strongly encourage implementers to use the seed variant of FIPS 203 to -->
+<!-- achieve strong binding properties -->
 
 # IANA Considerations
 
 This document requests/registers three new entries to the TLS Named Group
 (or Supported Group) registry, according to the procedures in {{Section
 6 of tlsiana}}.
-
 
 
  Value:
