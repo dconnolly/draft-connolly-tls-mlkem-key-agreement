@@ -216,6 +216,17 @@ output of the corresponding KEM `NamedGroup`'s `KeyGen` algorithm.
 For the server's share, the `key_exchange` value contains the `ct`
 output of the corresponding KEM `NamedGroup`'s `Encaps` algorithm.
 
+For all parameter sets, the server MUST perform the encapsulation key check
+described in Section 7.2 of {{FIPS203}} on the client's encapsulation key,
+and abort with an `illegal_parameter` alert if it fails.
+
+For all parameter sets, the client MUST check if the ciphertext length
+matches the selected parameter set, and abort with an `illegal_parameter`
+alert if it fails.
+
+If ML-KEM decapsulation fails for any other reason, the connection MUST be
+aborted with an `internal_error` alert.
+
 ## Shared secret calculation {#construction-shared-secret}
 
 The shared secret output from the ML-KEM `Encaps` and `Decaps`
@@ -258,23 +269,28 @@ key schedule in place of the (EC)DHE shared secret, as shown in
 
 # Discussion {#discussion}
 
-**Larger encapsulation keys and/or ciphertexts** The `KeyShareEntry` struct
-limits public keys and ciphertexts to 2^16-1 bytes; this is the (2^16-1)-byte
-limit on the `key_exchange` field in the `KeyShareEntry` struct. All defined
-parameter sets for ML-KEM have encapsulation keys and ciphertexts that fall
-within the TLS constraints.
+## Larger encapsulation keys and/or ciphertexts
 
-**Failures** Some post-quantum key exchange algorithms, including ML-KEM,
-have non-zero probability of failure, meaning two honest parties may derive
-different shared secrets.  This would cause a handshake failure. ML-KEM has a
+The `KeyShareEntry` struct limits public keys and ciphertexts to 2^16-1
+bytes; this is the (2^16-1)-byte limit on the `key_exchange` field in the
+`KeyShareEntry` struct. All defined parameter sets for ML-KEM have
+encapsulation keys and ciphertexts that fall within the TLS constraints.
+
+## Failures
+
+Some post-quantum key exchange algorithms, including ML-KEM, have non-zero
+probability of failure, meaning two honest parties may derive different
+shared secrets.  This would cause a handshake failure. ML-KEM has a
 cryptographically small failure rate; implementers should be aware of the
 potential of handshake failure. Clients can retry if a failure is
 encountered.
 
-# Security Considerations
+# Security Considerations {#security-considerations}
 
-**Fixed lengths** For each `NameGroup`, the lengths are fixed (that is,
-constant) for encapsulation keys, the ciphertexts, and the shared secrets.
+## Fixed lengths
+
+For each `NameGroup`, the lengths are fixed (that is, constant) for
+encapsulation keys, the ciphertexts, and the shared secrets.
 
 Variable-length secrets are, generally speaking, dangerous.  In particular,
 when using key material of variable length and processing it using hash
@@ -287,10 +303,12 @@ Lucky Thirteen {{LUCKY13}} and Raccoon {{RACCOON}} attacks.
 function used in the key derivation function is no longer
 collision-resistant.
 
-**IND-CCA** The main security property for KEMs is indistinguishability under
-adaptive chosen ciphertext attack (IND-CCA2), which means that shared secret
-values should be indistinguishable from random strings even given the ability
-to have other arbitrary ciphertexts decapsulated.  IND-CCA2 corresponds to
+## IND-CCA
+
+The main security property for KEMs is indistinguishability under adaptive
+chosen ciphertext attack (IND-CCA2), which means that shared secret values
+should be indistinguishable from random strings even given the ability to
+have other arbitrary ciphertexts decapsulated.  IND-CCA2 corresponds to
 security against an active attacker, and the public key / secret key pair can
 be treated as a long-term key or reused.  A common design pattern for
 obtaining security under key reuse is to apply the Fujisaki-Okamoto (FO)
@@ -321,19 +339,20 @@ key abides by any bounds in the specification of the KEM or subsequent
 security analyses.  Implementations MUST NOT reuse randomness in the
 generation of KEM ciphertexts.
 
-**Binding properties** TLS 1.3's key schedule commits to the the ML-KEM
-encapsulation key and the encapsulated shared secret ciphertext as the
-`key_exchange` field as part of the `key_share` extension are populated with
-those values are included as part of the handshake messages, providing
-resilience against re-encapsulation attacks against KEMs used for key
-agreement.
+## Binding properties
+
+TLS 1.3's key schedule commits to the the ML-KEM encapsulation key and the
+ciphertext as the `key_exchange` field as part of the `key_share` extension
+are populated with those values are included as part of the handshake
+messages, providing resilience against re-encapsulation attacks against KEMs
+used for key agreement.
 
 Because of the inclusion of the ML-KEM ciphertext in the TLS 1.3 key
 schedule, there is no concern of malicious tampering (MAL) adversaries, nor
 of just honestly-generated but leaked key pairs (LEAK adversaries). The same
 is true of KEMs with weaker binding properties, even if they were to have
 more constraints for secure use in contexts outside of TLS 1.3 handshake key
-agreement.These computational binding properties for KEMs were formalized in
+agreement. These computational binding properties for KEMs were formalized in
 {{CDM23}}.
 
 <!-- TODO: extrapolate on Kemmy Schmidt implications; in the mlkem document, -->

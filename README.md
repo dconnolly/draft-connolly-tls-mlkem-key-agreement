@@ -1,6 +1,6 @@
 # ML-KEM Post-Quantum Key Agreement for TLS 1.3
 
-This is the working area for the individual Internet-Draft, "Key Encapsulation Mechanisms for TLS 1.3".
+This is the working area for the individual Internet-Draft, "ML-KEM Post-Quantum Key Agreement for TLS 1.3".
 
 * [Editor's Copy](https://dconnolly.github.io/draft-connolly-tls-kems/#go.draft-connolly-tls-mlkem-key-exchange.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-connolly-tls-mlkem-key-exchange)
