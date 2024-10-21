@@ -1,17 +1,17 @@
-# Key Encapsulation Mechanisms for TLS 1.3
+# ML-KEM Post-Quantum Key Agreement for TLS 1.3
 
 This is the working area for the individual Internet-Draft, "Key Encapsulation Mechanisms for TLS 1.3".
 
 * [Editor's Copy](https://dconnolly.github.io/draft-connolly-tls-kems/#go.draft-connolly-tls-mlkem-key-exchange.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-connolly-tls-kems)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-connolly-tls-kems)
-* [Compare Editor's Copy to Individual Draft](https://dconnolly.github.io/draft-connolly-tls-kems/#go.draft-connolly-tls-mlkem-key-exchange.diff)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-connolly-tls-mlkem-key-exchange)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-connolly-tls-mlkem-key-exchange)
+* [Compare Editor's Copy to Individual Draft](https://dconnolly.github.io/draft-connolly-tls-mlkem-key-exchange/#go.draft-connolly-tls-mlkem-key-exchange.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/dconnolly/draft-connolly-tls-kems/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/dconnolly/draft-connolly-tls-mlkem-key-exchange/blob/main/CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
