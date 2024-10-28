@@ -367,7 +367,7 @@ This document requests/registers three new entries to the TLS Named Group
 
 
  Value:
- : 0x0512 (please)
+ : 0x105
 
  Description:
  : MLKEM512
@@ -387,7 +387,7 @@ This document requests/registers three new entries to the TLS Named Group
 
 
  Value:
- : 0x0768 (please)
+ : 0x106
 
  Description:
  : MLKEM768
@@ -407,7 +407,7 @@ This document requests/registers three new entries to the TLS Named Group
 
 
  Value:
- : 0x1024 (please)
+ : 0x107
 
  Description:
  : MLKEM1024
