@@ -4,8 +4,8 @@
 
 Transport Layer Security                                     D. Connolly
 Internet-Draft                                                 SandboxAQ
-Intended status: Informational                           21 October 2024
-Expires: 24 April 2025
+Intended status: Informational                           28 October 2024
+Expires: 1 May 2025
 
 
              ML-KEM Post-Quantum Key Agreement for TLS 1.3
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 April 2025.
+   This Internet-Draft will expire on 1 May 2025.
 
 Copyright Notice
 
@@ -348,7 +348,7 @@ Table of Contents
    Group (or Supported Group) registry, according to the procedures in
    Section 6 of [tlsiana].
 
-   Value:  0x0512 (please)
+   Value:  0x105
 
    Description:  MLKEM512
 
@@ -360,7 +360,7 @@ Table of Contents
 
    Comment:  FIPS 203 version of ML-KEM-512
 
-   Value:  0x0768 (please)
+   Value:  0x106
 
    Description:  MLKEM768
 
@@ -372,7 +372,7 @@ Table of Contents
 
    Comment:  FIPS 203 version of ML-KEM-768
 
-   Value:  0x1024 (please)
+   Value:  0x107
 
    Description:  MLKEM1024
 
