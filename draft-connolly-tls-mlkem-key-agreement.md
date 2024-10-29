@@ -168,9 +168,9 @@ Supported Groups registry:
          ...,
 
           /* ML-KEM Key Agreement Methods */
-          mlkem512(0x0512),
-          mlkem768(0x0768),
-          mlkem1024(0x1024)
+          mlkem512(0x0105),
+          mlkem768(0x0106),
+          mlkem1024(0x0107)
 
          ...,
 
