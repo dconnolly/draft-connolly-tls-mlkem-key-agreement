@@ -168,9 +168,9 @@ Supported Groups registry:
          ...,
 
           /* ML-KEM Key Agreement Methods */
-          mlkem512(0x0105),
-          mlkem768(0x0106),
-          mlkem1024(0x0107)
+          mlkem512(0x0200),
+          mlkem768(0x0201),
+          mlkem1024(0x0202)
 
          ...,
 
@@ -367,7 +367,7 @@ This document requests/registers three new entries to the TLS Named Group
 
 
  Value:
- : 0x105
+ : 0x0200
 
  Description:
  : MLKEM512
@@ -387,7 +387,7 @@ This document requests/registers three new entries to the TLS Named Group
 
 
  Value:
- : 0x106
+ : 0x0201
 
  Description:
  : MLKEM768
@@ -407,7 +407,7 @@ This document requests/registers three new entries to the TLS Named Group
 
 
  Value:
- : 0x107
+ : 0x0202
 
  Description:
  : MLKEM1024
