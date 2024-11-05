@@ -10,18 +10,18 @@
        This memo defines ML-KEM-512, ML-KEM-768, and ML-KEM-1024 as a standalone
  NamedGroup s for use in TLS 1.3 to achieve post-quantum key agreement. 
     " name="description">
-<meta content="xml2rfc 3.23.2" name="generator">
+<meta content="xml2rfc 3.24.0" name="generator">
 <meta content="kems" name="keyword">
 <meta content="tls" name="keyword">
 <meta content="draft-connolly-tls-mlkem-key-agreement-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.23.2
+  xml2rfc 3.24.0
     Python 3.12.7
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.4
-    lxml 4.9.4
+    lxml 5.3.0
     platformdirs 4.3.6
     pycountry 22.3.5
     PyYAML 6.0.1
@@ -1079,11 +1079,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">connolly-tls-mlkem-key-agreement</td>
-<td class="right">October 2024</td>
+<td class="right">November 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Connolly</td>
-<td class="center">Expires 2 May 2025</td>
+<td class="center">Expires 9 May 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1096,12 +1096,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-connolly-tls-mlkem-key-agreement-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-10-29" class="published">29 October 2024</time>
+<time datetime="2024-11-05" class="published">5 November 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-05-02">2 May 2025</time></dd>
+<dd class="expires"><time datetime="2025-05-09">9 May 2025</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1151,7 +1151,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 2 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 9 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1353,9 +1353,9 @@ Supported Groups registry:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
          ...,
 
           /* ML-KEM Key Agreement Methods */
-          mlkem512(0x0105),
-          mlkem768(0x0106),
-          mlkem1024(0x0107)
+          mlkem512(0x0200),
+          mlkem768(0x0201),
+          mlkem1024(0x0202)
 
          ...,
 
@@ -1582,11 +1582,11 @@ agreement. These computational binding properties for KEMs were formalized in
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <p id="section-7-1">This document requests/registers three new entries to the TLS Named Group
-(or Supported Group) registry, according to the procedures in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8447bis-09#section-6" class="relref">Section 6</a> of [<a href="#tlsiana" class="cite xref">tlsiana</a>]</span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
+(or Supported Group) registry, according to the procedures in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8447bis-10#section-6" class="relref">Section 6</a> of [<a href="#tlsiana" class="cite xref">tlsiana</a>]</span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="section-7-2">
         <dt id="section-7-2.1">Value:</dt>
         <dd style="margin-left: 1.5em" id="section-7-2.2">
-          <p id="section-7-2.2.1">0x105<a href="#section-7-2.2.1" class="pilcrow">¶</a></p>
+          <p id="section-7-2.2.1">0x0200<a href="#section-7-2.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-7-2.3">Description:</dt>
@@ -1616,7 +1616,7 @@ agreement. These computational binding properties for KEMs were formalized in
         <dd class="break"></dd>
 <dt id="section-7-2.13">Value:</dt>
         <dd style="margin-left: 1.5em" id="section-7-2.14">
-          <p id="section-7-2.14.1">0x106<a href="#section-7-2.14.1" class="pilcrow">¶</a></p>
+          <p id="section-7-2.14.1">0x0201<a href="#section-7-2.14.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-7-2.15">Description:</dt>
@@ -1646,7 +1646,7 @@ agreement. These computational binding properties for KEMs were formalized in
         <dd class="break"></dd>
 <dt id="section-7-2.25">Value:</dt>
         <dd style="margin-left: 1.5em" id="section-7-2.26">
-          <p id="section-7-2.26.1">0x107<a href="#section-7-2.26.1" class="pilcrow">¶</a></p>
+          <p id="section-7-2.26.1">0x0202<a href="#section-7-2.26.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-7-2.27">Description:</dt>
@@ -1751,7 +1751,7 @@ agreement. These computational binding properties for KEMs were formalized in
 <dd class="break"></dd>
 <dt id="tlsiana">[tlsiana]</dt>
       <dd>
-<span class="refAuthor">Salowey, J. A.</span> and <span class="refAuthor">S. Turner</span>, <span class="refTitle">"IANA Registry Updates for TLS and DTLS"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc8447bis-09</span>, <time datetime="2024-04-30" class="refDate">30 April 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8447bis-09">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8447bis-09</a>&gt;</span>. </dd>
+<span class="refAuthor">Salowey, J. A.</span> and <span class="refAuthor">S. Turner</span>, <span class="refTitle">"IANA Registry Updates for TLS and DTLS"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc8447bis-10</span>, <time datetime="2024-11-03" class="refDate">3 November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8447bis-10">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8447bis-10</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>

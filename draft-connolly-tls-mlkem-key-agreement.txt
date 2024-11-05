@@ -4,8 +4,8 @@
 
 Transport Layer Security                                     D. Connolly
 Internet-Draft                                                 SandboxAQ
-Intended status: Informational                           29 October 2024
-Expires: 2 May 2025
+Intended status: Informational                           5 November 2024
+Expires: 9 May 2025
 
 
              ML-KEM Post-Quantum Key Agreement for TLS 1.3
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 May 2025.
+   This Internet-Draft will expire on 9 May 2025.
 
 Copyright Notice
 
@@ -156,9 +156,9 @@ Table of Contents
             ...,
 
              /* ML-KEM Key Agreement Methods */
-             mlkem512(0x0105),
-             mlkem768(0x0106),
-             mlkem1024(0x0107)
+             mlkem512(0x0200),
+             mlkem768(0x0201),
+             mlkem1024(0x0202)
 
             ...,
 
@@ -348,7 +348,7 @@ Table of Contents
    Group (or Supported Group) registry, according to the procedures in
    Section 6 of [tlsiana].
 
-   Value:  0x105
+   Value:  0x0200
 
    Description:  MLKEM512
 
@@ -360,7 +360,7 @@ Table of Contents
 
    Comment:  FIPS 203 version of ML-KEM-512
 
-   Value:  0x106
+   Value:  0x0201
 
    Description:  MLKEM768
 
@@ -372,7 +372,7 @@ Table of Contents
 
    Comment:  FIPS 203 version of ML-KEM-768
 
-   Value:  0x107
+   Value:  0x0202
 
    Description:  MLKEM1024
 
@@ -461,9 +461,9 @@ Table of Contents
 
    [tlsiana]  Salowey, J. A. and S. Turner, "IANA Registry Updates for
               TLS and DTLS", Work in Progress, Internet-Draft, draft-
-              ietf-tls-rfc8447bis-09, 30 April 2024,
+              ietf-tls-rfc8447bis-10, 3 November 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              rfc8447bis-09>.
+              rfc8447bis-10>.
 
 Acknowledgments
 
