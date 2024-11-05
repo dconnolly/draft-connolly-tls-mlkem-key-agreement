@@ -281,7 +281,7 @@ encapsulation keys and ciphertexts that fall within the TLS constraints.
 Some post-quantum key exchange algorithms, including ML-KEM, have non-zero
 probability of failure, meaning two honest parties may derive different
 shared secrets.  This would cause a handshake failure. ML-KEM has a
-cryptographically small failure rate; implementers should be aware of the
+cryptographically small failure rate less than 2^138; implementers should be aware of the
 potential of handshake failure. Clients can retry if a failure is
 encountered.
 
