@@ -4,8 +4,8 @@
 
 Transport Layer Security                                     D. Connolly
 Internet-Draft                                                 SandboxAQ
-Intended status: Informational                           5 November 2024
-Expires: 9 May 2025
+Intended status: Informational                           6 November 2024
+Expires: 10 May 2025
 
 
              ML-KEM Post-Quantum Key Agreement for TLS 1.3
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 May 2025.
+   This Internet-Draft will expire on 10 May 2025.
 
 Copyright Notice
 
@@ -264,9 +264,9 @@ Table of Contents
    Some post-quantum key exchange algorithms, including ML-KEM, have
    non-zero probability of failure, meaning two honest parties may
    derive different shared secrets.  This would cause a handshake
-   failure.  ML-KEM has a cryptographically small failure rate;
-   implementers should be aware of the potential of handshake failure.
-   Clients can retry if a failure is encountered.
+   failure.  ML-KEM has a cryptographically small failure rate less than
+   2^-138; implementers should be aware of the potential of handshake
+   failure.  Clients can retry if a failure is encountered.
 
 6.  Security Considerations
 
