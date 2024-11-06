@@ -281,9 +281,9 @@ encapsulation keys and ciphertexts that fall within the TLS constraints.
 Some post-quantum key exchange algorithms, including ML-KEM, have non-zero
 probability of failure, meaning two honest parties may derive different
 shared secrets.  This would cause a handshake failure. ML-KEM has a
-cryptographically small failure rate less than 2^-138; implementers should be aware of the
-potential of handshake failure. Clients can retry if a failure is
-encountered.
+cryptographically small failure rate less than 2^-138; implementers should
+be aware of the potential of handshake failure. Clients can retry if a
+failure is encountered.
 
 # Security Considerations {#security-considerations}
 
@@ -354,10 +354,6 @@ is true of KEMs with weaker binding properties, even if they were to have
 more constraints for secure use in contexts outside of TLS 1.3 handshake key
 agreement. These computational binding properties for KEMs were formalized in
 {{CDM23}}.
-
-<!-- TODO: extrapolate on Kemmy Schmidt implications; in the mlkem document, -->
-<!-- strongly encourage implementers to use the seed variant of FIPS 203 to -->
-<!-- achieve strong binding properties -->
 
 # IANA Considerations
 
