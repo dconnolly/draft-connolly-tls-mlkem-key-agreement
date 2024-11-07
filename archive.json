@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-05T00:21:39.190125+00:00",
+  "timestamp": "2024-11-07T00:21:41.644030+00:00",
   "repo": "dconnolly/draft-connolly-tls-mlkem-key-agreement",
   "labels": [
     {
@@ -160,6 +160,48 @@
           "body": "",
           "createdAt": "2024-03-20T00:07:10Z",
           "updatedAt": "2024-03-20T00:07:10Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOLZWQXM6BBCWB",
+      "title": "failure rate less than 2^-138",
+      "url": "https://github.com/dconnolly/draft-connolly-tls-mlkem-key-agreement/pull/5",
+      "state": "MERGED",
+      "author": "emanjon",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I think it helps reader to understand how small the failure rate is",
+      "createdAt": "2024-11-06T07:30:08Z",
+      "updatedAt": "2024-11-06T11:19:33Z",
+      "baseRepository": "dconnolly/draft-connolly-tls-mlkem-key-agreement",
+      "baseRefName": "main",
+      "baseRefOid": "046f93c0ba3cc32a6cc21f827d303b408969d91e",
+      "headRepository": "emanjon/draft-connolly-tls-mlkem-key-agreement",
+      "headRefName": "patch-1",
+      "headRefOid": "d60d7df23184f09f1ecee30a236a2543c08bccfe",
+      "closedAt": "2024-11-06T11:19:33Z",
+      "mergedAt": "2024-11-06T11:19:33Z",
+      "mergedBy": "dconnolly",
+      "mergeCommit": {
+        "oid": "ca092d96c039a4c77bf311d8df7c717e17fd3d07"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLZWQXM6QH55_",
+          "commit": {
+            "abbreviatedOid": "d60d7df"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-11-06T11:14:47Z",
+          "updatedAt": "2024-11-06T11:14:47Z",
           "comments": []
         }
       ]
