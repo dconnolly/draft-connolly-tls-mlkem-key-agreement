@@ -241,16 +241,16 @@ output of the corresponding ML-KEM parameter set's `KeyGen` algorithm.
 For the server's share, the `key_exchange` value contains the `ct`
 output of the corresponding ML-KEM parameter set's `Encaps` algorithm.
 
-For all parameter sets, the server MUST perform the encapsulation key check
-described in Section 7.2 of {{FIPS203}} on the client's encapsulation key,
+For all parameter sets, the server MUST check if the encapsulation key length (`pk`)
+matches the selected parameter set,
 and abort with an `illegal_parameter` alert if it fails.
 
-For all parameter sets, the client MUST check if the ciphertext length
-matches the selected parameter set, and abort with an `illegal_parameter`
-alert if it fails.
+For all parameter sets, the client MUST check if the ciphertext length (`ct`)
+matches the selected parameter set,
+and abort with an `illegal_parameter` alert if it fails.
 
-If ML-KEM decapsulation fails for any other reason, the connection MUST be
-aborted with an `internal_error` alert.
+If ML-KEM checks, encapsulation, or decapsulation fail for any other reason,
+the connection MUST be aborted with an `internal_error` alert.
 
 Implementations MUST NOT reuse randomness in the generation of ML-KEM
 ciphertexts— it follows that ML-KEM ciphertexts also MUST NOT be reused.
